@@ -3,7 +3,7 @@ builds:
 
 release:
   extra_files:
-    - glob: ./PLACEHOLDER.alfredworkflow
+    - glob: ./alfred-zenoss-search.alfredworkflow
   draft: true
 
 changelog:
