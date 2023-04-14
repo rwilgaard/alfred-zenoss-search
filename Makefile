@@ -34,3 +34,9 @@ package-alfred:
 	@cd ./workflow \
 	&& zip -r ../$(PROJECT_NAME).alfredworkflow ./* \
 	&& cd .. && rm -rf workflow && git checkout workflow
+
+update-readme:
+	@alfred unlink
+	@./update-readme.sh
+	@alfred link
+

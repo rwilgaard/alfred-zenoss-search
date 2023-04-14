@@ -417,7 +417,22 @@
 		</dict>
 	</array>
 	<key>readme</key>
-	<string></string>
+	<string># Zenoss Search
+A workflow finding devices in your Zenoss installation.
+
+## Features
+* Search for devices.
+* Show events for a device.
+* Workflow auto update.
+
+## Keywords
+You can change the default `zen` keyword in the User configuration.
+* `zen` search for devices.
+
+## Actions
+The following actions can be used on a highlighted device:
+* `↩` will open the device in your browser.
+* `⌘` + `↩` will show events for the highlighted devices.</string>
 	<key>uidata</key>
 	<dict>
 		<key>32413BEF-BDD5-4A79-9E5B-485AC38E59BD</key>
