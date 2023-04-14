@@ -1,13 +1,15 @@
 package main
 
 import (
-    "log"
-    "os"
-    "os/exec"
+	"log"
+	"os"
+	"os/exec"
+	"strings"
+	"sync"
 
-    aw "github.com/deanishe/awgo"
-    "github.com/deanishe/awgo/update"
-    "github.com/rwilgaard/go-zenoss"
+	aw "github.com/deanishe/awgo"
+	"github.com/deanishe/awgo/update"
+	"github.com/rwilgaard/go-zenoss"
 )
 
 type workflowConfig struct {
@@ -85,15 +87,31 @@ func run() {
         wf.SendFeedback()
         return
     }
-
     cfg.Password = password
 
-    api, err := zenoss.NewAPI(cfg.URL, cfg.Username, cfg.Password)
-    if err != nil {
-        wf.FatalError(err)
+    if opts.Events {
+        url := os.Getenv("zenoss_url")
+        api, err := zenoss.NewAPI(url, cfg.Username, cfg.Password)
+        if err != nil {
+            wf.FatalError(err)
+        }
+        runEvents(api, url)
+        wf.SendFeedback()
+        return
     }
 
-    runSearch(api)
+    var wg sync.WaitGroup
+    for _, url := range strings.Split(cfg.URL, ",") {
+        api, err := zenoss.NewAPI(strings.TrimSpace(url), cfg.Username, cfg.Password)
+        if err != nil {
+            wf.FatalError(err)
+        }
+
+        wg.Add(1)
+        go runSearch(api, url, &wg)
+    }
+
+    wg.Wait()
 
     if wf.IsEmpty() {
         wf.NewItem("No results found...").

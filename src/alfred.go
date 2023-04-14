@@ -2,6 +2,9 @@ package main
 
 import (
     "fmt"
+    "os"
+    "sync"
+    "time"
 
     aw "github.com/deanishe/awgo"
     "github.com/ncruces/zenity"
@@ -29,7 +32,19 @@ func runAuth() {
     }
 }
 
-func runSearch(api *zenoss.API) {
+func getIcon(query string) *aw.Icon {
+    iconPath := fmt.Sprintf("icons/%s.png", query)
+    icon := aw.IconWorkflow
+
+    if _, err := os.Stat(iconPath); err == nil {
+        icon = &aw.Icon{Value: iconPath}
+    }
+
+    return icon
+}
+
+func runSearch(api *zenoss.API, url string, wg *sync.WaitGroup) {
+    defer wg.Done()
     devices, err := getDevices(api, opts.Query)
     if err != nil {
         wf.FatalError(err)
@@ -40,11 +55,52 @@ func runSearch(api *zenoss.API) {
         eCount := d.Events.Error.Count
         wCount := d.Events.Warning.Count
         eventCount := cCount + eCount + wCount
-        wf.NewItem(d.Name).
+        i := wf.NewItem(d.Name).
             Arg("open").
             Subtitle(fmt.Sprintf("%s  •  Events: %d", prodStates[d.ProductionState], eventCount)).
-            Var("device_url", cfg.URL+d.UID).
+            Var("uid", d.UID).
+            Var("url", url+d.UID).
+            Var("zenoss_url", url).
+            Var("query", opts.Query).
+            Icon(getIcon(d.OsManufacturer["name"])).
             Valid(true)
+
+        i.NewModifier("cmd").
+            Arg("events").
+            Subtitle("Show events")
+    }
+}
+
+func runEvents(api *zenoss.API, url string) {
+    events, err := getEvents(api, opts.Query)
+    if err != nil {
+        wf.FatalError(err)
+    }
+
+    wf.NewItem("Go back").
+        Arg("go_back").
+        Icon(getIcon("go_back")).
+        Valid(true)
+
+    for _, e := range events {
+        var lastSeen string
+        switch e.LastTime.(type) {
+        case string:
+            lastSeen = e.LastTime.(string)
+        case float64:
+            ts := int64(e.LastTime.(float64))
+            lastSeen = time.Unix(ts, 0).Format("02-01-2006 15:04")
+        }
+
+        i := wf.NewItem(e.Summary).
+            Arg("open").
+            Subtitle(fmt.Sprintf("Count: %d  •  Last Seen: %s", e.Count, lastSeen)).
+            Var("url", fmt.Sprintf("%s/zport/dmd/Events/viewDetail?evid=%s", url, e.EvID)).
+            Icon(getIcon(severityCodes[e.Severity])).
+            Valid(true)
+
+        i.NewModifier("opt").
+            Subtitle(fmt.Sprintf("Component: %s", e.Component.Text))
     }
 }
 

@@ -6,6 +6,33 @@
 	<string>com.rwilgaard.alfred.zenoss-search-go</string>
 	<key>connections</key>
 	<dict>
+		<key>32413BEF-BDD5-4A79-9E5B-485AC38E59BD</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>631E1FB8-0D72-41C4-BC88-F603CDCD4F28</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>sourceoutputuid</key>
+				<string>EC2E44A9-27EA-4047-9365-7F2D20653847</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>6A75CD70-8C4E-4338-8B3D-FA0ADA084952</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>sourceoutputuid</key>
+				<string>2625A2AB-C573-44E6-B148-23BDEF46C835</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>A3523070-CA60-4A14-B1A9-2935A62C1DE2</key>
 		<array>
 			<dict>
@@ -32,12 +59,50 @@
 				<key>vitoclose</key>
 				<false/>
 			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>E8E2FDB4-1FE6-49A1-B9A8-9F13CA370E28</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>sourceoutputuid</key>
+				<string>085190AC-C83F-4B78-9F14-EAA86FE2B6F0</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
 		</array>
 		<key>A4A3200D-43AC-429D-B979-6BAC0CC8C64C</key>
 		<array>
 			<dict>
 				<key>destinationuid</key>
 				<string>A3523070-CA60-4A14-B1A9-2935A62C1DE2</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>E5D09934-471E-446E-879A-CD2619DB61D3</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>32413BEF-BDD5-4A79-9E5B-485AC38E59BD</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>E8E2FDB4-1FE6-49A1-B9A8-9F13CA370E28</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>E5D09934-471E-446E-879A-CD2619DB61D3</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -83,6 +148,27 @@
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>browser</key>
+				<string></string>
+				<key>skipqueryencode</key>
+				<true/>
+				<key>skipvarencode</key>
+				<true/>
+				<key>spaces</key>
+				<string></string>
+				<key>url</key>
+				<string>{var:url}</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.openurl</string>
+			<key>uid</key>
+			<string>631E1FB8-0D72-41C4-BC88-F603CDCD4F28</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>alfredfiltersresults</key>
 				<false/>
 				<key>alfredfiltersresultsmatchmode</key>
@@ -98,11 +184,11 @@
 				<key>keyword</key>
 				<string>zen</string>
 				<key>queuedelaycustom</key>
-				<integer>1</integer>
+				<integer>3</integer>
 				<key>queuedelayimmediatelyinitially</key>
-				<true/>
+				<false/>
 				<key>queuedelaymode</key>
-				<integer>2</integer>
+				<integer>1</integer>
 				<key>queuemode</key>
 				<integer>1</integer>
 				<key>runningsubtext</key>
@@ -120,6 +206,17 @@
 				<key>type</key>
 				<integer>0</integer>
 				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>inboundconfig</key>
+			<dict>
+				<key>custominputarg</key>
+				<string>{var:query}</string>
+				<key>externalid</key>
+				<string>search</string>
+				<key>inputmode</key>
+				<integer>1</integer>
+				<key>usecustominputarg</key>
 				<true/>
 			</dict>
 			<key>type</key>
@@ -162,6 +259,20 @@
 						<key>uid</key>
 						<string>7BF756FC-E56D-4616-9FC1-B37FC03E3217</string>
 					</dict>
+					<dict>
+						<key>inputstring</key>
+						<string></string>
+						<key>matchcasesensitive</key>
+						<false/>
+						<key>matchmode</key>
+						<integer>0</integer>
+						<key>matchstring</key>
+						<string>events</string>
+						<key>outputlabel</key>
+						<string>events</string>
+						<key>uid</key>
+						<string>085190AC-C83F-4B78-9F14-EAA86FE2B6F0</string>
+					</dict>
 				</array>
 				<key>elselabel</key>
 				<string>else</string>
@@ -178,21 +289,129 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>browser</key>
-				<string></string>
-				<key>skipqueryencode</key>
+				<key>alfredfiltersresults</key>
 				<false/>
-				<key>skipvarencode</key>
-				<false/>
-				<key>spaces</key>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<true/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
 				<string></string>
-				<key>url</key>
-				<string>{var:device_url}</string>
+				<key>script</key>
+				<string>./alfred-zenoss-search -events "${uid}"</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string></string>
+				<key>title</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<false/>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.action.openurl</string>
+			<string>alfred.workflow.input.scriptfilter</string>
 			<key>uid</key>
-			<string>631E1FB8-0D72-41C4-BC88-F603CDCD4F28</string>
+			<string>E5D09934-471E-446E-879A-CD2619DB61D3</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>externaltriggerid</key>
+				<string>search</string>
+				<key>passinputasargument</key>
+				<false/>
+				<key>passvariables</key>
+				<true/>
+				<key>workflowbundleid</key>
+				<string>self</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.callexternaltrigger</string>
+			<key>uid</key>
+			<string>6A75CD70-8C4E-4338-8B3D-FA0ADA084952</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>conditions</key>
+				<array>
+					<dict>
+						<key>inputstring</key>
+						<string></string>
+						<key>matchcasesensitive</key>
+						<false/>
+						<key>matchmode</key>
+						<integer>0</integer>
+						<key>matchstring</key>
+						<string>open</string>
+						<key>outputlabel</key>
+						<string>open</string>
+						<key>uid</key>
+						<string>EC2E44A9-27EA-4047-9365-7F2D20653847</string>
+					</dict>
+					<dict>
+						<key>inputstring</key>
+						<string></string>
+						<key>matchcasesensitive</key>
+						<false/>
+						<key>matchmode</key>
+						<integer>0</integer>
+						<key>matchstring</key>
+						<string>go_back</string>
+						<key>outputlabel</key>
+						<string>go back</string>
+						<key>uid</key>
+						<string>2625A2AB-C573-44E6-B148-23BDEF46C835</string>
+					</dict>
+				</array>
+				<key>elselabel</key>
+				<string>else</string>
+				<key>hideelse</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.conditional</string>
+			<key>uid</key>
+			<string>32413BEF-BDD5-4A79-9E5B-485AC38E59BD</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argument</key>
+				<string></string>
+				<key>passthroughargument</key>
+				<false/>
+				<key>variables</key>
+				<dict/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.argument</string>
+			<key>uid</key>
+			<string>E8E2FDB4-1FE6-49A1-B9A8-9F13CA370E28</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -201,19 +420,33 @@
 	<string></string>
 	<key>uidata</key>
 	<dict>
+		<key>32413BEF-BDD5-4A79-9E5B-485AC38E59BD</key>
+		<dict>
+			<key>xpos</key>
+			<real>675</real>
+			<key>ypos</key>
+			<real>280</real>
+		</dict>
 		<key>631E1FB8-0D72-41C4-BC88-F603CDCD4F28</key>
 		<dict>
 			<key>xpos</key>
-			<real>535</real>
+			<real>755</real>
 			<key>ypos</key>
-			<real>210</real>
+			<real>150</real>
+		</dict>
+		<key>6A75CD70-8C4E-4338-8B3D-FA0ADA084952</key>
+		<dict>
+			<key>xpos</key>
+			<real>755</real>
+			<key>ypos</key>
+			<real>260</real>
 		</dict>
 		<key>A3523070-CA60-4A14-B1A9-2935A62C1DE2</key>
 		<dict>
 			<key>xpos</key>
 			<real>370</real>
 			<key>ypos</key>
-			<real>170</real>
+			<real>155</real>
 		</dict>
 		<key>A4A3200D-43AC-429D-B979-6BAC0CC8C64C</key>
 		<dict>
@@ -225,9 +458,23 @@
 		<key>ACB39F93-790E-4C57-94D7-E6A6789ECB14</key>
 		<dict>
 			<key>xpos</key>
+			<real>540</real>
+			<key>ypos</key>
+			<real>40</real>
+		</dict>
+		<key>E5D09934-471E-446E-879A-CD2619DB61D3</key>
+		<dict>
+			<key>xpos</key>
 			<real>535</real>
 			<key>ypos</key>
-			<real>90</real>
+			<real>260</real>
+		</dict>
+		<key>E8E2FDB4-1FE6-49A1-B9A8-9F13CA370E28</key>
+		<dict>
+			<key>xpos</key>
+			<real>475</real>
+			<key>ypos</key>
+			<real>290</real>
 		</dict>
 	</dict>
 	<key>userconfigurationconfig</key>
@@ -245,9 +492,9 @@
 				<true/>
 			</dict>
 			<key>description</key>
-			<string>URL for your Zenoss installation. Specify multiple URLs comma-separated</string>
+			<string>URL for your Zenoss installation. Comma separate URLs to search in multiple Zenoss installations.</string>
 			<key>label</key>
-			<string>Zenoss URLs</string>
+			<string>Zenoss URL</string>
 			<key>type</key>
 			<string>textfield</string>
 			<key>variable</key>
