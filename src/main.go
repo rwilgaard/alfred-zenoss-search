@@ -90,7 +90,7 @@ func run() {
     cfg.Password = password
 
     if opts.Events {
-        url := os.Getenv("zenoss_url")
+        url := os.Getenv("endpoint")
         api, err := zenoss.NewAPI(url, cfg.Username, cfg.Password)
         if err != nil {
             wf.FatalError(err)

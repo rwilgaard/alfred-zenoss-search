@@ -60,7 +60,7 @@ func runSearch(api *zenoss.API, url string, wg *sync.WaitGroup) {
             Subtitle(fmt.Sprintf("%s  •  Events: %d", prodStates[d.ProductionState], eventCount)).
             Var("uid", d.UID).
             Var("url", url+d.UID).
-            Var("zenoss_url", url).
+            Var("endpoint", url).
             Var("query", opts.Query).
             Icon(getIcon(d.OsManufacturer["name"])).
             Valid(true)
