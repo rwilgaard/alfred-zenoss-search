@@ -13,12 +13,12 @@ require (
 	github.com/josephspurrier/goversioninfo v1.4.0 // indirect
 	github.com/randall77/makefat v0.0.0-20210315173500-7ddd0e42c844 // indirect
 	golang.org/x/image v0.10.0 // indirect
-	golang.org/x/sys v0.8.0 // indirect
+	golang.org/x/sys v0.10.0 // indirect
 )
 
 require (
 	github.com/magefile/mage v1.14.0 // indirect
-	github.com/ncruces/zenity v0.10.9
+	github.com/ncruces/zenity v0.10.10
 	go.deanishe.net/env v0.5.1 // indirect
 	go.deanishe.net/fuzzy v1.0.0 // indirect
 	golang.org/x/text v0.11.0 // indirect
