@@ -559,7 +559,7 @@ The following actions can be used on a highlighted device:
 		</dict>
 	</array>
 	<key>version</key>
-	<string>1.0.0</string>
+	<string>1.0.1</string>
 	<key>webaddress</key>
 	<string>https://github.com/rwilgaard/alfred-zenoss-search</string>
 </dict>
