@@ -1,8 +1,6 @@
 module github.com/rwilgaard/alfred-zenoss-search
 
-go 1.23.1
-
-toolchain go1.23.4
+go 1.25.0
 
 require (
 	github.com/deanishe/awgo v0.29.1
@@ -14,7 +12,7 @@ require (
 	github.com/dchest/jsmin v1.0.0 // indirect
 	github.com/josephspurrier/goversioninfo v1.4.1 // indirect
 	github.com/randall77/makefat v0.0.0-20210315173500-7ddd0e42c844 // indirect
-	golang.org/x/image v0.23.0 // indirect
+	golang.org/x/image v0.38.0 // indirect
 	golang.org/x/sys v0.28.0 // indirect
 )
 
@@ -23,5 +21,5 @@ require (
 	github.com/ncruces/zenity v0.10.14
 	go.deanishe.net/env v0.5.1 // indirect
 	go.deanishe.net/fuzzy v1.0.0 // indirect
-	golang.org/x/text v0.21.0 // indirect
+	golang.org/x/text v0.35.0 // indirect
 )
