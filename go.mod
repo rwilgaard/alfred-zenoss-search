@@ -2,7 +2,7 @@ module github.com/rwilgaard/alfred-zenoss-search
 
 go 1.23.1
 
-toolchain go1.23.4
+toolchain go1.26.4
 
 require (
 	github.com/deanishe/awgo v0.29.1
