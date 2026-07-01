@@ -38,7 +38,7 @@ func getDevices(api *zenoss.API, query string) ([]zenoss.Device, error) {
             "osManufacturer",
             "events",
         },
-        Params: map[string]interface{}{
+        Params: map[string]any {
             "name": query,
         },
     }
@@ -49,7 +49,7 @@ func getDevices(api *zenoss.API, query string) ([]zenoss.Device, error) {
     }
 
     if res.StatusCode != 200 {
-        return nil, fmt.Errorf("Error fetching devices. StatusCode: %d", res.StatusCode)
+        return nil, fmt.Errorf("error fetching devices. statuscode: %d", res.StatusCode)
     }
 
     return d.Result.Devices, nil
@@ -67,7 +67,7 @@ func getEvents(api *zenoss.API, uid string) ([]zenoss.Event, error) {
             "evid",
             "lastTime",
         },
-        Params: map[string]interface{}{
+        Params: map[string]any {
             "eventState": []int{0,1},
             "severity": []int{3,4,5},
         },
@@ -79,7 +79,7 @@ func getEvents(api *zenoss.API, uid string) ([]zenoss.Event, error) {
     }
 
     if res.StatusCode != 200 {
-        return nil, fmt.Errorf("Error querying events. StatusCode: %d", res.StatusCode)
+        return nil, fmt.Errorf("error querying events. statuscode: %d", res.StatusCode)
     }
 
     return e.Result.Events, nil
