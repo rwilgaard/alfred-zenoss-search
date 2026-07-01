@@ -4,6 +4,9 @@ on:
     tags:
       - v*
 
+permissions:
+  contents: read
+
 jobs:
   build-release:
     runs-on: macos-15
@@ -41,6 +44,8 @@ jobs:
   release:
     needs: build-release
     runs-on: ubuntu-24.04
+    permissions:
+      contents: write
     steps:
       - name: Check out code
         uses: actions/checkout@v7
@@ -52,13 +57,14 @@ jobs:
         with:
           go-version-file: go.mod
 
-      - name: Dowload artifacts
+      - name: Download artifacts
         uses: actions/download-artifact@v4.3.0
         with:
           name: universal-binary
           path: download
 
-      - run: |
+      - name: Copy binary into workflow
+        run: |
           test -f download/alfred-zenoss-search && cp download/alfred-zenoss-search workflow/alfred-zenoss-search
           chmod +x workflow/alfred-zenoss-search
           rm -rf download
