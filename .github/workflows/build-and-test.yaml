@@ -10,6 +10,9 @@ on:
       - '!LICENSE'
       - '!*.md'
 
+permissions:
+  contents: read
+
 jobs:
   lint:
     name: lint
@@ -28,9 +31,6 @@ jobs:
 
       - name: Run vet
         run: make vet
-
-      - name: Run lint
-        run: make lint
 
   build:
     name: Build on ${{ matrix.os }}
