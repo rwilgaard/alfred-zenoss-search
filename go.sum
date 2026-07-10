@@ -35,6 +35,8 @@ github.com/rwilgaard/go-alfredutils v1.2.1 h1:2QGtUyvGzWXCnIe4Q0soesvmF43SZk3uHW
 github.com/rwilgaard/go-alfredutils v1.2.1/go.mod h1:zwxLYwoQcxvBH8tb1EwH7XNSl2bwZESkacANyjEBs+E=
 github.com/rwilgaard/go-zenoss v0.0.5 h1:tjYaUgN2yb72dzS+r3XsccNXwlOcDGFjfYPNik1bSg0=
 github.com/rwilgaard/go-zenoss v0.0.5/go.mod h1:gH7COLRXYRwmpzMB1BrXX9mbqbRfPW4g2EDJ960vy60=
+github.com/rwilgaard/go-zenoss v0.1.1 h1:lzv0rl5ArOI3dz7IVOI5+ETqdGdy3jhw10TkBsavOQg=
+github.com/rwilgaard/go-zenoss v0.1.1/go.mod h1:JOKTug4Vl8IHsuLuN3jqEg92h7q8PEH6Z0zE9/BTiWg=
 github.com/spf13/cobra v1.10.2 h1:DMTTonx5m65Ic0GOoRY2c16WCbHxOOw6xxezuLaBpcU=
 github.com/spf13/cobra v1.10.2/go.mod h1:7C1pvHqHw5A4vrJfjNwvOdzYu0Gml16OCs2GRiTUUS4=
 github.com/spf13/pflag v1.0.9/go.mod h1:McXfInJRrz4CZXVZOBLb0bTZqETkiAhM9Iw0y3An2Bg=
