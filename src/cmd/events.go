@@ -14,7 +14,7 @@ var eventsCmd = &cobra.Command{
 	Use:   "events [uid]",
 	Short: "show events for a device",
 	Args:  cobra.ExactArgs(1),
-	RunE: func(_ *cobra.Command, args []string) error {
+	RunE: func(cmd *cobra.Command, args []string) error {
 		if ok := alfredutils.HandleAuthentication(wf, keychainAccount); !ok {
 			return nil
 		}
@@ -27,7 +27,7 @@ var eventsCmd = &cobra.Command{
 			return err
 		}
 
-		events, err := client.GetEvents(uid)
+		events, err := client.GetEvents(cmd.Context(), uid)
 		if err != nil {
 			return err
 		}

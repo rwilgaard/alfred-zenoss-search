@@ -1,6 +1,7 @@
 package zenoss
 
 import (
+	"context"
 	"fmt"
 
 	goz "github.com/rwilgaard/go-zenoss"
@@ -39,9 +40,9 @@ func NewClient(url, username, password string) (*Client, error) {
 	return &Client{c: api, URL: url}, nil
 }
 
-func (cl *Client) TestAuthentication() error {
+func (cl *Client) TestAuthentication(ctx context.Context) error {
 	q := goz.GetDevicesQuery{Limit: 1, Keys: []string{"name"}}
-	_, res, err := cl.c.GetDevices(q)
+	_, res, err := cl.c.GetDevices(ctx, q)
 	if err != nil {
 		return err
 	}
@@ -51,7 +52,7 @@ func (cl *Client) TestAuthentication() error {
 	return nil
 }
 
-func (cl *Client) GetDevices(query string) ([]goz.Device, error) {
+func (cl *Client) GetDevices(ctx context.Context, query string) ([]goz.Device, error) {
 	q := goz.GetDevicesQuery{
 		Limit: 10,
 		Keys: []string{
@@ -66,7 +67,7 @@ func (cl *Client) GetDevices(query string) ([]goz.Device, error) {
 		},
 	}
 
-	d, res, err := cl.c.GetDevices(q)
+	d, res, err := cl.c.GetDevices(ctx, q)
 	if err != nil {
 		return nil, err
 	}
@@ -78,7 +79,7 @@ func (cl *Client) GetDevices(query string) ([]goz.Device, error) {
 	return d.Result.Devices, nil
 }
 
-func (cl *Client) GetEvents(uid string) ([]goz.Event, error) {
+func (cl *Client) GetEvents(ctx context.Context, uid string) ([]goz.Event, error) {
 	q := goz.QueryEventsQuery{
 		UID:   uid,
 		Limit: 25,
@@ -96,7 +97,7 @@ func (cl *Client) GetEvents(uid string) ([]goz.Event, error) {
 		},
 	}
 
-	e, res, err := cl.c.QueryEvents(q)
+	e, res, err := cl.c.QueryEvents(ctx, q)
 	if err != nil {
 		return nil, err
 	}

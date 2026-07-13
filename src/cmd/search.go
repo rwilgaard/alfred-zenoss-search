@@ -16,7 +16,7 @@ var searchCmd = &cobra.Command{
 	Use:   "search [query]",
 	Short: "search Zenoss devices",
 	Args:  cobra.RangeArgs(0, 1),
-	Run: func(_ *cobra.Command, args []string) {
+	Run: func(cmd *cobra.Command, args []string) {
 		if ok := alfredutils.HandleAuthentication(wf, keychainAccount); !ok {
 			return
 		}
@@ -41,7 +41,7 @@ var searchCmd = &cobra.Command{
 			wg.Add(1)
 			go func(client *zenoss.Client, url string) {
 				defer wg.Done()
-				devices, err := client.GetDevices(query)
+				devices, err := client.GetDevices(cmd.Context(), query)
 				if err != nil {
 					errCh <- err
 					return
