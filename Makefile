@@ -39,7 +39,7 @@ release: ## Prepare and tag a new release (usage: make release VERSION=x.y.z)
 	@if [ -z "$(VERSION)" ]; then echo "Usage: make release VERSION=x.y.z"; exit 1; fi
 	@plutil -replace version -string "$(VERSION)" workflow/info.plist
 	@make package-alfred
-	@git add workflow/info.plist $(PROJECT_NAME).alfredworkflow
+	@git add workflow/info.plist
 	@git commit -m "chore: release v$(VERSION)"
 	@git tag "v$(VERSION)"
 	@git push origin main --tags
