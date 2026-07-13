@@ -3,7 +3,7 @@ PKG          := "github.com/rwilgaard/$(PROJECT_NAME)"
 GO111MODULE  = on
 
 .EXPORT_ALL_VARIABLES:
-.PHONY: all dep lint vet build clean universal-binary package-alfred fmt release help
+.PHONY: all dep lint vet build clean universal-binary package-alfred zip-alfred fmt release help
 
 all: build
 
@@ -30,7 +30,9 @@ universal-binary: ## Combine arch binaries into universal binary
 clean: ## Remove build artifacts
 	@rm -f workflow/$(PROJECT_NAME) workflow/$(PROJECT_NAME)-amd64 workflow/$(PROJECT_NAME)-arm64
 
-package-alfred: build universal-binary ## Build and package into .alfredworkflow
+package-alfred: build universal-binary zip-alfred ## Build and package into .alfredworkflow
+
+zip-alfred: ## Zip workflow dir into .alfredworkflow (requires existing binary)
 	@cd ./workflow && zip -r ../$(PROJECT_NAME).alfredworkflow ./*
 	@rm -f workflow/$(PROJECT_NAME)
 	@echo "Created $(PROJECT_NAME).alfredworkflow"

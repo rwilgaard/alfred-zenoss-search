@@ -38,7 +38,7 @@ jobs:
     needs: [lint]
     strategy:
       matrix:
-        os: [macos-14, macos-15, ubuntu-24.04]
+        os: [macos-26, ubuntu-24.04]
     steps:
       - name: Check out code
         uses: actions/checkout@v7

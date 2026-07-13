@@ -71,7 +71,7 @@ jobs:
 
       - name: Package Alfred workflow
         run: |
-          make package-alfred
+          make zip-alfred
 
       - name: Run GoReleaser
         uses: goreleaser/goreleaser-action@v7
