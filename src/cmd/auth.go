@@ -12,7 +12,7 @@ import (
 var authCmd = &cobra.Command{
 	Use:   "auth",
 	Short: "authenticate with Zenoss",
-	RunE: func(_ *cobra.Command, _ []string) error {
+	RunE: func(cmd *cobra.Command, _ []string) error {
 		_, pwd, err := zenity.Password(
 			zenity.Title(fmt.Sprintf("Enter password for %s", cfg.Username)),
 		)
@@ -26,7 +26,7 @@ var authCmd = &cobra.Command{
 		if err != nil {
 			return err
 		}
-		if err := client.TestAuthentication(); err != nil {
+		if err := client.TestAuthentication(cmd.Context()); err != nil {
 			zerr := zenity.Error(
 				fmt.Sprintf("Authentication failed: %s", err),
 				zenity.ErrorIcon,

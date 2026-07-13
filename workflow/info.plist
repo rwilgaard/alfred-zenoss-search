@@ -130,7 +130,7 @@
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>script</key>
-				<string>./alfred-zenoss-search -auth</string>
+				<string>./alfred-zenoss-search auth</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
