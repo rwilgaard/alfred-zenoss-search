@@ -4,7 +4,7 @@ go 1.26.4
 
 require (
 	github.com/deanishe/awgo v0.29.1
-	github.com/rwilgaard/go-alfredutils v1.2.1
+	github.com/rwilgaard/go-alfredutils v1.3.0
 	github.com/rwilgaard/go-zenoss v0.1.1
 	github.com/spf13/cobra v1.10.2
 )
