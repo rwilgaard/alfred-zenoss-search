@@ -37,6 +37,7 @@ github.com/rwilgaard/go-alfredutils v1.2.1 h1:2QGtUyvGzWXCnIe4Q0soesvmF43SZk3uHW
 github.com/rwilgaard/go-alfredutils v1.2.1/go.mod h1:zwxLYwoQcxvBH8tb1EwH7XNSl2bwZESkacANyjEBs+E=
 github.com/rwilgaard/go-alfredutils v1.3.0 h1:dDzY0QI3euKYAN4WnQHsRMtd6iFKFLFrk1eDX4WCYLk=
 github.com/rwilgaard/go-alfredutils v1.3.0/go.mod h1:zwxLYwoQcxvBH8tb1EwH7XNSl2bwZESkacANyjEBs+E=
+github.com/rwilgaard/go-alfredutils/v2 v2.6.0/go.mod h1:xNtZ5IQYcoP+OZmFIvBZBhDH/JKHmufBxoS1pDDRQBY=
 github.com/rwilgaard/go-zenoss v0.0.5 h1:tjYaUgN2yb72dzS+r3XsccNXwlOcDGFjfYPNik1bSg0=
 github.com/rwilgaard/go-zenoss v0.0.5/go.mod h1:gH7COLRXYRwmpzMB1BrXX9mbqbRfPW4g2EDJ960vy60=
 github.com/rwilgaard/go-zenoss v0.1.0 h1:MRVcJxXE6rnhu3f1dJ1RqOPJzIkCJ/tyJEYwWRx++SM=
